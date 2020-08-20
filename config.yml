@@ -1,20 +1,20 @@
 PATHS:
-  RAW_DATA: '/home/charles/workspace/Covid/Covid/data/'                                       # Path containing all 3 raw datasets (Mila, Figure 1, RSNA)
-  MILA_DATA: '/home/charles/workspace/Covid/Covid/data/Covid_images/'              # Path of Mila dataset https://github.com/ieee8023/covid-chestxray-dataset
-  FIGURE1_DATA: '/home/charles/workspace/Covid/Covid/data/Figure1-COVID-chestxray-dataset/'   # Path of Figure 1 dataset https://github.com/agchung/Figure1-COVID-chestxray-dataset
-  RSNA_DATA: '/home/charles/workspace/Covid/Covid/data/rsna/'                                 # Path of RSNA dataset https://www.kaggle.com/c/rsna-pneumonia-detection-challenge
-  PROCESSED_DATA: '/home/charles/workspace/Covid/Covid/data/processed/'
-  TRAIN_SET: '/home/charles/workspace/Covid/Covid/data/processed/train_set.csv'
-  VAL_SET: '/home/charles/workspace/Covid/Covid/data/processed/val_set.csv'
-  TEST_SET: '/home/charles/workspace/Covid/Covid/data/processed/test_set.csv'
+  RAW_DATA: '/var/www/html/Covid/Covid/data/'                                       # Path containing all 3 raw datasets (Mila, Figure 1, RSNA)
+  MILA_DATA: '/var/www/html/Covid/Covid/data/Covid_images/'              # Path of Mila dataset https://github.com/ieee8023/covid-chestxray-dataset
+  FIGURE1_DATA: '/var/www/html/Covid/Covid/data/Figure1-COVID-chestxray-dataset/'   # Path of Figure 1 dataset https://github.com/agchung/Figure1-COVID-chestxray-dataset
+  RSNA_DATA: '/var/www/html/Covid/Covid/data/rsna/'                                 # Path of RSNA dataset https://www.kaggle.com/c/rsna-pneumonia-detection-challenge
+  PROCESSED_DATA: '/var/www/html/Covid/Covid/data/processed/'
+  TRAIN_SET: '/var/www/html/Covid/Covid/data/processed/train_set.csv'
+  VAL_SET: '/var/www/html/Covid/Covid/data/processed/val_set.csv'
+  TEST_SET: '/var/www/html/Covid/Covid/data/processed/test_set.csv'
   IMAGES: 'documents/generated_images/'
-  LOGS: '/home/charles/workspace/Covid/Covid\/results/logs'
-  MODEL_WEIGHTS: '/home/charles/workspace/Covid/Covid/results/models'
-  MODEL_TO_LOAD: '/home/charles/workspace/Covid/Covid/results/modelsmodel20200517-042540.h5'
-  LIME_EXPLAINER: '/home/charles/workspace/Covid/Covid/data/interpretability/lime_explainer.pkl'
-  OUTPUT_CLASS_INDICES: '/home/charles/workspace/Covid/Covid/data/interpretability/output_class_indices.pkl'
-  BATCH_PRED_IMGS: '/home/charles/workspace/Covid/Covid/src/data/data/processed/test/'
-  BATCH_PREDS: '/home/charles/workspace/Covid/Covid/results/predictions/'
+  LOGS: '/var/www/html/Covid/Covid\/results/logs'
+  MODEL_WEIGHTS: '/var/www/html/Covid/Covid/results/models'
+  MODEL_TO_LOAD: '/var/www/html/Covid/Covid/results/modelsmodel20200517-042540.h5'
+  LIME_EXPLAINER: '/var/www/html/Covid/Covid/data/interpretability/lime_explainer.pkl'
+  OUTPUT_CLASS_INDICES: '/var/www/html/Covid/Covid/data/interpretability/output_class_indices.pkl'
+  BATCH_PRED_IMGS: '/var/www/html/Covid/Covid/src/data/data/processed/test/'
+  BATCH_PREDS: '/var/www/html/Covid/Covid/results/predictions/'
 
 DATA:
   IMG_DIM: [224, 224]
