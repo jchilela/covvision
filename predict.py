@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# coding=utf-8
 
 import pandas as pd
 import yaml
@@ -164,12 +165,12 @@ def predict_and_explain_set(raw_img_dir=None, preds_dir=None, save_results=True,
         results_path = preds_dir + 'predictions.csv'
         results_df.to_csv(results_path, columns=col_names, index_label=False, index=False)
         
-         #String de Conexão com o Banco - Atualizando o Banco de Dados
+        #String de Conexão com o Banco - Atualizando o Banco de Dados
         
         mydb = mysql.connector.connect(
-         host="youintelligent.com.br",
-         user="youint10_milloca",
-         passwd="milloca72SF$",           
+         host="localhost",
+         user="sdadmin",
+         passwd="EngAng19#",           
          database="youint10_wp27")
         
         enderecoimagem = row[0]
@@ -211,19 +212,21 @@ def predict_and_explain_set(raw_img_dir=None, preds_dir=None, save_results=True,
         
         
     #FTP Upload
-        os.chdir('/home/charles/workspace/Covid/Covid/results/predictions/' + cur_date)
-        session = ftplib.FTP('108.179.253.54','irb@institutorespirabrasil.org','Groselha2020$')
+        os.chdir('/var/www/html/Covid/Covid/results/predictions/' + cur_date)
+        # session = ftplib.FTP('108.179.253.54','irb@institutorespirabrasil.org','Groselha2020$')
         print("Imagem Explicacao " , nomearquivo)
         print(" Exp File Name " , exp_filename)
-        session.cwd('/irb/uploads')
-        file = open(nomearquivo,'rb')                  # file to send
-        print("Nome do Arquivo", file)
-        session.storbinary('STOR ' + nomearquivo, file)     # send the file
-        file.close()                                    # close file and FTP
-        session.quit()
+        os.rename(nomearquivo, '/var/www/html/irb/uploads')
+
+
+        # session.cwd('/irb/uploads')
+        # file = open(nomearquivo,'rb')                  # file to send
+        # print("Nome do Arquivo", file)
+        # session.storbinary('STOR ' + nomearquivo, file)     # send the file
+        # file.close()                                    # close file and FTP
+        # session.quit()
 
         return results_df
-        
         
         
         

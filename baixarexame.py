@@ -12,7 +12,7 @@ datetime.datetime.now()
 #print(datetime.datetime.now())
 
 import logging
-logging.basicConfig(filename='/home/charles/workspace/Covid/Covid/src/covidvision.log',level=logging.DEBUG)
+logging.basicConfig(filename='/var/www/html/Covid/Covid/src/covidvision.log',level=logging.DEBUG)
 logging.debug(str(datetime.datetime.now()) + ' Iniciando o baixarexame.py')
 
 
@@ -21,9 +21,9 @@ import os
 import  ftplib
 
 mydb = mysql.connector.connect(
-host="youintelligent.com.br",
-user="youint10_milloca",
-passwd="milloca72SF$",           
+host="localhost",
+user="sdadmin",
+passwd="EngAng19#",           
 database="youint10_wp27")
 
 cursor = mydb.cursor()
@@ -54,7 +54,7 @@ if cursor.rowcount > 0:
           logging.debug(str(datetime.datetime.now()) + ' baixarexame - tabela exames atualizada - linha 52')   
         
       except:
-                logging.debug(str(datetime.datetime.now()) + ' baixarexame - Erro ao tentar fazer update em exames - 52')   
+          logging.debug(str(datetime.datetime.now()) + ' baixarexame - Erro ao tentar fazer update em exames - 52')   
 
 
       mydb.commit()
@@ -63,32 +63,33 @@ if cursor.rowcount > 0:
            
       imagem =  enderecoimagem.replace("/uploads/", "")
 
-      os.chdir('/home/charles/workspace/Covid/Covid/src/data/data/processed/test')
+      os.chdir('/var/www/html/Covid/Covid/src/data/data/processed/test')
     
 
       #excluir arquivos
       
       import glob
                           
-      files = glob.glob('/home/charles/workspace/Covid/Covid/src/data/data/processed/test/*')
+      files = glob.glob('/var/www/html/Covid/Covid/src/data/data/processed/test/*')
       for f in files:
           os.remove(f)
       
     #FILENAME = 'WEnvmYq4ay-Exame-pneumonia.jpeg'    
     
-      with ftplib.FTP("108.179.253.54", "irb@institutorespirabrasil.org", "Groselha2020$") as ftp:
-        ftp.cwd('/irb/uploads')
-        with open(imagem, 'wb') as f:
-            ftp.retrbinary('RETR ' + imagem, f.write)
+    #   with ftplib.FTP("108.179.253.54", "irb@institutorespirabrasil.org", "Groselha2020$") as ftp:
+    #     ftp.cwd('/irb/uploads')
+    #     with open(imagem, 'wb') as f:
+    #         ftp.retrbinary('RETR ' + imagem, f.write)
+      os.rename(imagem, '/var/www/html/irb/uploads')
 
     #Begin Predição e Explaination        
       
-      os.chdir('/home/charles/workspace/Covid/Covid/src/') 
+      os.chdir('/var/www/html/Covid/Covid/src/') 
       import predict
       
       print("iniciando o processsamento em Predict")
       
-      #os.chdir('/home/charles/workspace/Covid/Covid/') 
+      #os.chdir('/var/www/html/Covid/Covid/') 
       
       if tipoexame == "raiox":
           predict.predict_and_explain_set(preds_dir=None, save_results=True, give_explanations=True)  
